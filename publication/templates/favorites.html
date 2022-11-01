@@ -11,18 +11,16 @@
 </style>
     <div class="container">
 
-        {% for item in itemsR %}
-            {% with user_like=item.users_likes.all %}
-            <h1>Autor: {{ item.writer}}</h1>
-            <h1>Restaurante: {{ item.restaurant}}</h1>
-            <p>Avaliação: {{ item.stars }} estrelas</p>
-            <p style="margin: 5%; border:solid;">Detalhes: {{ item.detail }}</p>
-             {% if request.user in user_like %}
-                <a href="#" class="disabled btn btn-dark"> Like  </a>
+        {% for item in itemsF %}
+            {% with fave=item.favorites.all %}
+            <h1>{{ item.nomeRant}}</h1>
+            <p style="margin: 2%; border:solid;">{{ item.tipo }}</p>
+             {% if request.user in fave %}
+                <a href="#" class="disabled btn btn-dark"> Favorite  </a>
              {% else %}
-                  <a href="{% url 'like_rate' item.id %}" > Like  </a>
+                  <a href="{% url 'add_fav' item.id %}" > Favorite  </a>
              {% endif %}
-{#            <button id="likeButton" onclick="increment()">Like</button>#}
+{#            <button id="FavoriteButton" onclick="increment()">Favorite</button>#}
 {#        <script>#}
 {#            var buttons = document.getElementsByTagName('button');#}
 {#            for(let i=0;i<buttons.length;i++){  #}

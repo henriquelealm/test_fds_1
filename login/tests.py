@@ -1,4 +1,4 @@
-from unittest import TestCase
+from django.test import TestCase
 
 from django.contrib.auth import authenticate, get_user_model
 from django.db import IntegrityError
@@ -29,7 +29,7 @@ class testeConta(TestCase):
     def teste_usuario_nao_existe(self):
         self.assertRaises(ValueError, get_user_model().objects.create_user, username='', email='teste123@gmail.com',
                           password='password')
-
     def teste_usuario_ja_existe(self):
-        self.assertRaises(IntegrityError, get_user_model().objects.create_user,
-                          username='usuario1', email='teste123@gmail.com', password='password')
+        user = authenticate(username='usuario1')
+        self.assertFalse((user is not None) and user.is_authenticated)
+

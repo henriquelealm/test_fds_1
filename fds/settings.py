@@ -35,8 +35,9 @@ CSRF_TRUSTED_ORIGINS = ['https://check-restaurant.herokuapp.com/', 'https://chec
 
 INSTALLED_APPS = [
 
-
+    'login.apps.LoginConfig',
     'django.contrib.admin',
+    'crispy_forms',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -45,8 +46,7 @@ INSTALLED_APPS = [
     'users',
     'main',
     'publication',
-    'comment',
-    'login',
+    'comment'
 ]
 
 MIDDLEWARE = [
@@ -58,7 +58,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 ROOT_URLCONF = 'fds.urls'
 
 TEMPLATES = [

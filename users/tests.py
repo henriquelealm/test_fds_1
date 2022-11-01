@@ -9,7 +9,7 @@ class RantTest(TestCase):
         self.horarioInicio = timezone.now()
         self.horarioFinal = timezone.now()
         self.user_rant = UserRant.objects.create(username='testeUser', password='teste123',
-                                                 email='test@teste.com', nomeRant='testeRant', endereco='enderecoRant',
+            email='test@teste.com', nomeRant='testeRant', endereco='enderecoRant',
                                                  horarioInicio=self.horarioInicio, horarioFinal=self.horarioFinal,
                                                  tipo='tipoRant')
         self.user_rant.save()

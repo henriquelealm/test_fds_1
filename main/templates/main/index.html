@@ -1,5 +1,32 @@
+
+
 {% extends 'main/base.html' %}
+{% load crispy_forms_tags %}
 {% block content %}<p>CheckRant</p>
+
+
+    <h1>Cadastro de Usuário</h1>
+    {% if messages %}
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    {% endif %}
+    <form action="." method="post" autocomplete="off">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit">Criar conta</button>
+       <br/>
+        <a href="{% url 'main:user_login' %}">Fazer Login</a>
+    </form>
+
+{% endblock content %}
+
+
+
+<!--
+
+
+
 <ul>
     <label>historia 1</label>
     <li><a href="{% url 'pub.index' %}">Publicar avaliação</a></li>
@@ -10,6 +37,10 @@
     <li><a href="{% url 'comment.index' %}">Comentario</a></li>
     <label>historia 4</label>
     <li><a href="{% url 'viewReview.index' %}">Curtidas</a></li>
+    <label>historia 5</label>
+    <li><a href="{% url 'favorite.index' %}">Favoritar</a></li>
 
 </ul>
-{% endblock content %}
+
+-->
+
